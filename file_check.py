@@ -186,8 +186,8 @@ def loop_task():
 if __name__== "__main__":
     command_list = ["-d", "--dicrectory","-e","--end","-dna","-rna"]
     dir_name = "."
-    dna_name = "./DNA.py"
-    rna_name = "./RNA.py"
+    dna_name = os.path.abspath("./DNA.py")
+    rna_name = os.path.abspath("./RNA.py")
     end_name = ".txt"
     if "-d" in sys.argv:
         try:
@@ -245,10 +245,11 @@ if __name__== "__main__":
     else:
         pass
 
-
-    flag_dir = dir_name
-    MD5_dir = os.path.join(dir_name, "MD5.txt")
-    mergeRawFq_dir = os.path.join(dir_name, "00.mergeRawFq")
+    dir_name = os.path.abspath(dir_name).replace("\\","/")
+    # print(dir_name)
+    flag_dir = dir_nagitgime
+    MD5_dir = os.path.join(dir_name, "MD5.txt").replace("\\\\","/")
+    mergeRawFq_dir = os.path.join(dir_name, "00.mergeRawFq").replace("\\","/")
     # print(mergeRawFq_dir)
     # mergeRawFq_dir[]="\\"
     global mergeRawFq_dir_list
@@ -262,10 +263,10 @@ if __name__== "__main__":
     #     tl = Timeloop()
 
 
-        while 1 == 1:
-            loop_task()
-            sys.stdout.flush()
-            time.sleep(5)
+        # while 1 == 1:
+        #     loop_task()
+        #     sys.stdout.flush()
+        #     time.sleep(5)
             # print(mergeRawFq_file_list_RNA)
             # try:
             #     if "flag.txt" in os.listdir(flag_dir):
