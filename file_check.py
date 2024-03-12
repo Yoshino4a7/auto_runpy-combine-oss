@@ -130,7 +130,7 @@ def ok_file_run_DNA():
                     run_dir = os.path.join(mergeRawFq_dir, ok_filelist_DNA[name])
                     # print(os.path.join(mergeRawFq_dir, ok_filelist_RNA[name]))
 
-                    subprocess.run(f'python {dna_name} {os.path.join(run_dir, name)}')
+                    subprocess.run(f'python {dna_name} {os.path.join(run_dir, name)}',shell=True)
                     file_execute_DNA[name] = True
 
             else:
@@ -138,7 +138,7 @@ def ok_file_run_DNA():
                 run_dir = os.path.join(mergeRawFq_dir, ok_filelist_DNA[name])
                 # print(os.path.join(mergeRawFq_dir, ok_filelist_RNA[name]))
 
-                subprocess.run(f'python {dna_name} {os.path.join(run_dir, name)}')
+                subprocess.run(f'python {dna_name} {os.path.join(run_dir, name)}',shell=True)
                 file_execute_DNA[name] = True
 
     except:
@@ -157,7 +157,7 @@ def ok_file_run_RNA():
                 # print(run_dir)
                 # print(os.path.join(mergeRawFq_dir, ok_filelist_RNA[name]))
                 file_execute_RNA[name] = True
-                subprocess.run(f'python {rna_name} {os.path.join(run_dir, name)}')
+                subprocess.run(f'python {rna_name} {os.path.join(run_dir, name)}',shell=True)
 
         else:
             # 该文件执行脚本
@@ -165,7 +165,7 @@ def ok_file_run_RNA():
             # print(run_dir)
             # print(os.path.join(mergeRawFq_dir, ok_filelist_RNA[name]))
             file_execute_RNA[name] = True
-            subprocess.run(f'python {rna_name} {os.path.join(run_dir, name)}')
+            subprocess.run(f'python {rna_name} {os.path.join(run_dir, name)}',shell=True)
 
 def transform_path(path):
     return 1
@@ -247,7 +247,7 @@ if __name__== "__main__":
 
     dir_name = os.path.abspath(dir_name).replace("\\","/")
     # print(dir_name)
-    flag_dir = dir_nagitgime
+    flag_dir = dir_name
     MD5_dir = os.path.join(dir_name, "MD5.txt").replace("\\\\","/")
     mergeRawFq_dir = os.path.join(dir_name, "00.mergeRawFq").replace("\\","/")
     # print(mergeRawFq_dir)
